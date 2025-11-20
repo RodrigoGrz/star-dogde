@@ -56,3 +56,12 @@ pub fn spaw_start_over_time(
         ));
     }
 }
+
+pub fn despawn_star(
+    mut commands: Commands,
+    star_query: Query<Entity, With<Star>>
+) {
+    for star_entity in star_query.iter() {
+        commands.entity(star_entity).despawn();
+    }
+}

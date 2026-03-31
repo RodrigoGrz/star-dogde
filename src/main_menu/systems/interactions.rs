@@ -27,7 +27,7 @@ pub fn interact_with_play_button(
 
 pub fn interact_with_quit_button(
     mut button_query: Query<(&Interaction, &mut BackgroundColor), (Changed<Interaction>, With<QuitButton>)>,
-    mut app_exit_event_writer: EventWriter<AppExit>,
+    mut app_exit_event_writer: MessageWriter<AppExit>,
 ) {
     if let Ok((interaction, mut background_color)) = button_query.single_mut() {
         match *interaction {

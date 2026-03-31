@@ -1,6 +1,6 @@
-use bevy::ecs::event::Event;
+use bevy::ecs::message::Message;
 
-#[derive(Event)]
+#[derive(Message)]
 pub struct GameOver {
     pub score: u32,
 }

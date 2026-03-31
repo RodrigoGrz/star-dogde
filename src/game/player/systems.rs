@@ -104,7 +104,7 @@ pub fn confine_player_movement(
 
 pub fn enemy_hit_player(
     mut commands: Commands,
-    mut game_over_event_writer: EventWriter<GameOver>,
+    mut game_over_event_writer: MessageWriter<GameOver>,
     mut player_query: Query<(Entity, &Transform), With<Player>>,
     enemy_query: Query<&Transform, With<Enemy>>,
     score: Res<Score>,
@@ -117,7 +117,7 @@ pub fn enemy_hit_player(
             if distance < player_radius + enemy_radius {
                 println!("Enemy hit player! Game Over!");
                 commands.entity(player_entity).despawn();
-                game_over_event_writer.send(GameOver { score: score.value });
+                game_over_event_writer.write(GameOver { score: score.value });
             }
         }
     }

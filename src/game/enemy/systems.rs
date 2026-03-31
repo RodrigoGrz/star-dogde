@@ -141,7 +141,7 @@ pub fn spawn_enemy_over_time(
     asset_server: Res<AssetServer>,
     enemy_spawn_timer: Res<EnemySpawnTimer>,
 ) {
-    if enemy_spawn_timer.timer.finished() {
+    if enemy_spawn_timer.timer.is_finished() {
         let window: &Window = window_query.single().unwrap();
         let random_x = random::<f32>() * window.width();
         let random_y = random::<f32>() * window.height();

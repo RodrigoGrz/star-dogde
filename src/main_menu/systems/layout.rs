@@ -68,7 +68,7 @@ pub fn build_main_main(
                     ..default()
                 },
                 TextColor(Color::WHITE),
-                TextLayout::new(JustifyText::Center, LineBreak::NoWrap),
+                TextLayout::new(Justify::Center, LineBreak::NoWrap),
             ));
             // Image 2
             parent.spawn((

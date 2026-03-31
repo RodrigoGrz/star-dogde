@@ -1,52 +1,52 @@
 # ⭐ Star Dodge
 
-**Star Dodge** é um mini–jogo criado usando **Rust** e **Bevy Engine** com o objetivo principal de estudar desenvolvimento de jogos, ECS e arquitetura de sistemas no ecossistema Rust.
+**Star Dodge** is a mini-game built using **Rust** and the **Bevy Engine**, with the main goal of learning game development, ECS, and system architecture within the Rust ecosystem.
 
-No jogo, você controla uma **bola azul** enquanto:
+In the game, you control a **blue ball** while:
 
-- **Inimigos (bolas vermelhas)** vão surgindo ao longo do tempo.
-- **Estrelas** aparecem periodicamente no mapa e você precisa coletá-las.
+**Enemies (red balls)** spawn over time
+**Stars** appear periodically on the map, and you need to collect them
 
-O objetivo é **coletar o máximo de estrelas possível sem ser atingido por nenhum inimigo**.  
-Se um inimigo encostar em você: game over.
-
----
-
-## 🎮 Funcionalidades
-
-- Jogador controlando uma bola azul em 2D  
-- Spawn progressivo de inimigos  
-- Spawn aleatório de estrelas  
-- Sistema simples de colisão  
-- Contador de estrelas coletadas  
-- Lógica de game over  
+The objective is to **collect as many stars as possible without getting hit by any enemy**.
+If an enemy touches you: game over.
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## 🎮 Features
+
+- Player-controlled blue ball in a 2D environment
+- Progressive enemy spawning
+- Random star spawning
+- Simple collision system
+- Star collection counter
+- Game over logic  
+
+---
+
+## 🛠️ Technologies Used
 
 - **Rust**
 - **Bevy Engine** (ECS, 2D, time, systems)
-- **Cargo** para build e gerência do projeto
+- **Cargo** for building and managing the project
 
 ---
 
-## 🎯 Objetivo do Projeto
+## 🎯 Project Goal
 
-Este projeto foi criado com foco em **aprendizado**, explorando:
+This project was created with a focus on **learning**, exploring:
 
-- Estrutura ECS (Entidades, Componentes e Sistemas)
-- Loops de jogo e agendamento de sistemas
-- Spawn temporizado de entidades
-- Movimentação no plano 2D
-- Detecção de colisões simples
-- Organização de um projeto de jogo com Bevy
+- ECS structure (Entities, Components, and Systems)
+- Game loops and system scheduling
+- Timed entity spawning
+- 2D movement
+- Basic collision detection
+- Organizing a game project using Bevy
 
 ---
 
-## ▶️ Rodando o Projeto
+## ▶️ Running the Project
 
-Certifique-se de ter o Rust instalado.
+Make sure you have Rust installed.
 
 ```sh
 cargo run

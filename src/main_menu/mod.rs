@@ -14,7 +14,6 @@ pub struct MainMenuPlugin;
 impl Plugin for MainMenuPlugin {
     fn build(&self, app: &mut App) {
         app
-            // Main Menu
             .add_systems(OnEnter(AppState::MainMenu), spawn_main_menu)
             .add_systems(Update, (
                 interact_with_play_button,

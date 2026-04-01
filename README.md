@@ -1,5 +1,7 @@
 # ⭐ Star Dodge
 
+![Gameplay](./assets/gameplay.gif)
+
 **Star Dodge** is a mini-game built using **Rust** and the **Bevy Engine**, with the main goal of learning game development, ECS, and system architecture within the Rust ecosystem.
 
 In the game, you control a **blue ball** while:
@@ -12,35 +14,38 @@ If an enemy touches you: game over.
 
 ---
 
-## 🎮 Features
-
-- Player-controlled blue ball in a 2D environment
-- Progressive enemy spawning
-- Random star spawning
-- Simple collision system
-- Star collection counter
-- Game over logic  
+## 🎮 Gameplay
+- Control a blue player in a 2D environment
+- Enemies (red balls) spawn progressively over time
+- Stars appear randomly and increase your score
+- Getting hit by an enemy results in Game Over
 
 ---
 
-## 🛠️ Technologies Used
-
-- **Rust**
-- **Bevy Engine** (ECS, 2D, time, systems)
-- **Cargo** for building and managing the project
+## ⌨️ Controls
+| Key   | Action              |
+| ----- | ------------------- |
+| WASD  | Move player         |
+| Space | Pause / Resume game |
 
 ---
 
-## 🎯 Project Goal
+## 🛠️ Tech Stack
+- Rust
+- Bevy Engine
+- ECS pattern
+- Cargo
 
-This project was created with a focus on **learning**, exploring:
+---
 
-- ECS structure (Entities, Components, and Systems)
-- Game loops and system scheduling
-- Timed entity spawning
-- 2D movement
-- Basic collision detection
-- Organizing a game project using Bevy
+## 🎯 Purpose
+
+This project was built to deepen my understanding of:
+
+- ECS (Entities, Components, Systems)
+- Game loop and real-time updates
+- System orchestration and state transitions
+- Structuring scalable Rust applications
 
 ---
 
@@ -49,4 +54,4 @@ This project was created with a focus on **learning**, exploring:
 Make sure you have Rust installed.
 
 ```sh
-cargo run
+cargo run --release

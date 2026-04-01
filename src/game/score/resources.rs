@@ -23,3 +23,16 @@ impl Default for HighScores {
         HighScores { scores: Vec::new() }
     }
 }
+
+#[derive(Resource)]
+pub struct ScoreRemoveEnemy {
+    pub value: u32,
+}
+
+impl Default for ScoreRemoveEnemy {
+    fn default() -> Self {
+        ScoreRemoveEnemy { 
+            value: 0,
+        }
+    }
+}

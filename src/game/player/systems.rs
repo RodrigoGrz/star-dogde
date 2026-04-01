@@ -127,7 +127,8 @@ pub fn player_hit_stars(
     mut commands: Commands,
     player_query: Query<&Transform, With<Player>>,
     star_query: Query<(Entity, &Transform), With<Star>>,
-    mut score: ResMut<Score>
+    mut score: ResMut<Score>,
+    mut score_remove_enemy: ResMut<ScoreRemoveEnemy>
 ) {
     if let Ok(player_transform) = player_query.single() {
         for (star_entity, star_transform) in star_query.iter() {
@@ -138,6 +139,7 @@ pub fn player_hit_stars(
             if distance < PLAYER_SIZE / 2.0 + STAR_SIZE / 2.0 {
                 println!("Player hit star!");
                 score.value += 1;
+                score_remove_enemy.value += 1;
                 commands.entity(star_entity).despawn();
             }
         }

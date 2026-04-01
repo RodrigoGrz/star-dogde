@@ -1,7 +1,7 @@
 use bevy::prelude::*;
 
 use super::resources::*;
-use crate::events::GameOver;
+use crate::{events::GameOver, game::enemy::components::Enemy};
 
 pub fn insert_score(
     mut commands: Commands,
@@ -33,5 +33,20 @@ pub fn update_high_scores(
 pub fn high_scores_updated(high_scores: Res<HighScores>) {
     if high_scores.is_changed() {
         println!("High Scores: {:?}", high_scores);
+    }
+}
+
+pub fn update_score_remove_enemy(
+    mut commands: Commands,
+    mut score_remove_enemy: ResMut<ScoreRemoveEnemy>,
+    enemies: Query<Entity, With<Enemy>>,
+) {
+    if score_remove_enemy.is_changed() {
+        if score_remove_enemy.value >= 10 {
+            if let Some(enemy) = enemies.iter().next() {
+                commands.entity(enemy).despawn();
+            }
+            score_remove_enemy.value = 0;
+        }
     }
 }

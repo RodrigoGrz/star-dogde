@@ -1,6 +1,6 @@
 use bevy::prelude::*;
 
-use crate::main_menu::components::{MainMenu, PlayButton};
+use crate::main_menu::components::{BackToMenuButton, MainMenu, PlayButton, QuitButton, RestartButton};
 use crate::main_menu::styles::*;
 
 pub fn spawn_main_menu(
@@ -80,7 +80,6 @@ pub fn build_main_main(
                 },
             ));
         });
-        // Play Button
         parent
             .spawn((
                 Node {
@@ -128,7 +127,7 @@ pub fn build_main_main(
 
                 Interaction::default(),
 
-                PlayButton {},
+                QuitButton {},
             ))
             .with_children(|parent| {
                 parent.spawn((
@@ -147,4 +146,81 @@ pub fn build_main_main(
     .id();
 
     main_menu_entity
+}
+
+pub fn spawn_game_over_menu(
+    mut commands: Commands,
+    asset_server: Res<AssetServer>,
+) {
+    commands.spawn((
+        Node {
+            width: Val::Percent(100.),
+            height: Val::Percent(100.),
+            flex_direction: FlexDirection::Column,
+            justify_content: JustifyContent::Center,
+            align_items: AlignItems::Center,
+            row_gap: Val::Px(10.0),
+            ..default()
+        },
+        MainMenu {},
+    ))
+    .with_children(|parent| {
+        parent.spawn((
+            Text::new("Game Over"),
+            TextFont {
+                font: asset_server.load("fonts/FiraSans-Bold.ttf"),
+                font_size: 48.0,
+                ..default()
+            },
+            TextColor(Color::WHITE),
+        ));
+
+        parent.spawn((
+            Node {
+                width: Val::Px(200.0),
+                height: Val::Px(80.0),
+                justify_content: JustifyContent::Center,
+                align_items: AlignItems::Center,
+                ..default()
+            },
+            BackgroundColor(NORMAL_BUTTON_COLOR),
+            Interaction::default(),
+            RestartButton,
+        ))
+        .with_children(|parent| {
+            parent.spawn((
+                Text::new("Restart"),
+                TextFont {
+                    font: asset_server.load("fonts/FiraSans-Bold.ttf"),
+                    font_size: 32.0,
+                    ..default()
+                },
+                TextColor(Color::WHITE),
+            ));
+        });
+
+        parent.spawn((
+            Node {
+                width: Val::Px(200.0),
+                height: Val::Px(80.0),
+                justify_content: JustifyContent::Center,
+                align_items: AlignItems::Center,
+                ..default()
+            },
+            BackgroundColor(NORMAL_BUTTON_COLOR),
+            Interaction::default(),
+            BackToMenuButton,
+        ))
+        .with_children(|parent| {
+            parent.spawn((
+                Text::new("Main Menu"),
+                TextFont {
+                    font: asset_server.load("fonts/FiraSans-Bold.ttf"),
+                    font_size: 32.0,
+                    ..default()
+                },
+                TextColor(Color::WHITE),
+            ));
+        });
+    });
 }

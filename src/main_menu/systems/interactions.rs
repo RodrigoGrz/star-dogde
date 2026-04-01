@@ -44,3 +44,43 @@ pub fn interact_with_quit_button(
         }
     }
 }
+
+pub fn interact_with_restart_button(
+    mut query: Query<(&Interaction, &mut BackgroundColor), (Changed<Interaction>, With<RestartButton>)>,
+    mut next_state: ResMut<NextState<AppState>>,
+) {
+    if let Ok((interaction, mut color)) = query.single_mut() {
+        match *interaction {
+            Interaction::Pressed => {
+                *color = PRESSED_BUTTON_COLOR.into();
+                next_state.set(AppState::Game);
+            }
+            Interaction::Hovered => {
+                *color = HOVERED_BUTTON_COLOR.into();
+            }
+            Interaction::None => {
+                *color = NORMAL_BUTTON_COLOR.into();
+            }
+        }
+    }
+}
+
+pub fn interact_with_back_to_menu_button(
+    mut query: Query<(&Interaction, &mut BackgroundColor), (Changed<Interaction>, With<BackToMenuButton>)>,
+    mut next_state: ResMut<NextState<AppState>>,
+) {
+    if let Ok((interaction, mut color)) = query.single_mut() {
+        match *interaction {
+            Interaction::Pressed => {
+                *color = PRESSED_BUTTON_COLOR.into();
+                next_state.set(AppState::MainMenu);
+            }
+            Interaction::Hovered => {
+                *color = HOVERED_BUTTON_COLOR.into();
+            }
+            Interaction::None => {
+                *color = NORMAL_BUTTON_COLOR.into();
+            }
+        }
+    }
+}
